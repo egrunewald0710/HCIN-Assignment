@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NoteSwap | My Notes</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+    }
+    header {
+      background-color: #ffc107;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header h1 {
+      margin: 0;
+    }
+    nav a {
+      margin: 0 1rem;
+      text-decoration: none;
+      color: #000;
+      font-weight: bold;
+    }
+    .hero {
+      background: #fff3cd;
+      padding: 2rem;
+      text-align: center;
+    }
+    .notes-section {
+      max-width: 800px;
+      margin: 2rem auto;
+      background: #fff;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .notes-section h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+    .note-card {
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      background-color: #fdf5e6;
+    }
+    .note-card h3 {
+      margin: 0;
+      color: #ff9800;
+    }
+    .note-card p {
+      margin: 0.5rem 0;
+    }
+    .note-card a {
+      display: inline-block;
+      margin-top: 0.5rem;
+      padding: 0.4rem 0.8rem;
+      background-color: #ff9800;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+    .note-card a:hover {
+      background-color: #e68900;
+    }
+    footer {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>NoteSwap</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="browse.html">Browse Notes</a>
+      <a href="upload.html">Upload</a>
+      <a href="myNotes.html">My Notes</a>
+      <a href="login.html">Login</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h2>My Notes</h2>
+    <p>View and manage the notes you've uploaded.</p>
+  </section>
+
+  <section class="notes-section">
+    <h2>Uploaded Notes</h2>
+
+    <!-- Example note card -->
+    <div class="note-card">
+      <h3>ISEC6321 - Information Security</h3>
+      <p><strong>Qualification:</strong> BSc Computer Science</p>
+      <p><strong>Description:</strong> Notes covering modules 1 to 5 on cybersecurity concepts.</p>
+      <a href="#">Download</a>
+    </div>
+
+    <div class="note-card">
+      <h3>MATH101 - Calculus I</h3>
+      <p><strong>Qualification:</strong> BSc Mathematics</p>
+      <p><strong>Description:</strong> Lecture notes and example problems for Calculus I.</p>
+      <a href="#">Download</a>
+    </div>
+
+    <!-- Add more note cards dynamically from database or JS -->
+  </section>
+
+  <footer>
+    <p>&copy; 2025 NoteSwap. Built by students, for students.</p>
+  </footer>
+</body>
+</html>
