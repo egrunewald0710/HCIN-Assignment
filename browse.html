@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NoteSwap | Browse Notes</title>
+<script src="scripts.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+    }
+    header {
+      background-color: #ffc107;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header h1 {
+      margin: 0;
+    }
+    nav a {
+      margin: 0 1rem;
+      text-decoration: none;
+      color: #000;
+      font-weight: bold;
+    }
+    .hero {
+      background: #fff3cd;
+      padding: 2rem;
+      text-align: center;
+    }
+    .note-gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 2rem;
+      gap: 1.5rem;
+    }
+    .note-card {
+      width: 250px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      padding: 1rem;
+      text-align: center;
+    }
+    .note-card h3 {
+      margin: 0.5rem 0;
+    }
+    .note-card p {
+      font-size: 0.9rem;
+      color: #555;
+    }
+    .note-card button {
+      margin-top: 1rem;
+      padding: 0.5rem 1rem;
+      background-color: #ff9800;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    footer {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>NoteSwap</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="browse.html">Browse Notes</a>
+      <a href="upload.html">Upload</a>
+      <a href="myNotes.html">My Notes</a>
+      <a href="login.html">Login</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h2>Browse Notes</h2>
+    <p>Find study material shared by other students.</p>
+  </section>
+
+  <section class="note-gallery">
+    <!-- Card 1 -->
+    <div class="note-card">
+      <h3>Module: ISEC6321</h3>
+      <p>Qualification: BSc Computer Science</p>
+      <button>Download</button>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="note-card">
+      <h3>Module: DATA6211A</h3>
+      <p>Qualification: BSc Information Systems</p>
+      <button>Download</button>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="note-card">
+      <h3>Module: SAND6221A2</h3>
+      <p>Qualification: BSc Software Development</p>
+      <button>Download</button>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="note-card">
+      <h3>Module: IPMA6212</h3>
+      <p>Qualification: BCom IT Management</p>
+      <button>Download</button>
+    </div>
+
+    <div class="note-card">
+      <h3>Module: IPMA6212</h3>
+      <p>Qualification: BCom IT Management</p>
+      <button>Download</button>
+    </div>
+
+    <div class="note-card">
+      <h3>Module: IPMA6212</h3>
+      <p>Qualification: BCom IT Management</p>
+      <button>Download</button>
+    </div>
+
+  </section>
+
+  <footer>
+    <p>&copy; 2025 NoteSwap. Built by students, for students.</p>
+  </footer>
+
+</body>
+</html>
