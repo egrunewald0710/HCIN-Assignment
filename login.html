@@ -1,95 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>NoteSwap | Login</title>
-<script src="scripts.js"></script>
   <style>
+    /* Global Styles */
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Poppins', sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #f9f9f9;
+      background: linear-gradient(135deg, #fff3cd, #ffe082, #ffcc80);
+      background-size: 400% 400%;
+      animation: gradientMove 10s ease infinite;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
     }
+
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
     header {
       background-color: #ffc107;
       padding: 1rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
+
     header h1 {
       margin: 0;
+      font-weight: 700;
+      color: #333;
     }
+
     nav a {
       margin: 0 1rem;
       text-decoration: none;
       color: #000;
-      font-weight: bold;
+      font-weight: 600;
+      transition: color 0.3s;
     }
-    .hero {
-      background: #fff3cd;
-      padding: 2rem;
-      text-align: center;
+
+    nav a:hover {
+      color: #e68900;
     }
+
+    /* Login Section */
     .login-section {
-      max-width: 400px;
-      margin: 2rem auto;
       background: #fff;
-      padding: 2rem;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    }
-    .login-section h2 {
+      margin: auto;
+      padding: 2.5rem 2rem;
+      border-radius: 15px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+      width: 90%;
+      max-width: 400px;
       text-align: center;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .login-section h2 {
+      margin-bottom: 1rem;
+      color: #333;
+    }
+
+    .login-section p {
+      color: #666;
       margin-bottom: 1.5rem;
     }
+
     form label {
       display: block;
-      margin-top: 1rem;
-      font-weight: bold;
+      text-align: left;
+      margin: 1rem 0 0.3rem;
+      font-weight: 600;
+      color: #444;
     }
+
     form input {
       width: 100%;
-      padding: 0.6rem;
-      margin-top: 0.3rem;
+      padding: 0.7rem;
       border: 1px solid #ccc;
-      border-radius: 5px;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: all 0.3s;
     }
+
+    form input:focus {
+      outline: none;
+      border-color: #ff9800;
+      box-shadow: 0 0 5px rgba(255,152,0,0.5);
+    }
+
     form button {
       margin-top: 1.5rem;
-      padding: 0.7rem 1.5rem;
-      background-color: #ff9800;
-      border: none;
-      color: #fff;
-      cursor: pointer;
-      border-radius: 5px;
+      padding: 0.8rem;
       width: 100%;
-      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      background: linear-gradient(90deg, #ff9800, #ffc107);
+      color: white;
+      font-size: 1.1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
     }
+
     form button:hover {
-      background-color: #e68900;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 15px rgba(255,152,0,0.4);
     }
-    .login-section p {
-      text-align: center;
-      margin-top: 1rem;
-    }
+
     .login-section a {
       color: #ff9800;
       text-decoration: none;
-      font-weight: bold;
+      font-weight: 600;
+      transition: color 0.3s;
     }
+
+    .login-section a:hover {
+      color: #e68900;
+    }
+
     footer {
       background-color: #333;
       color: #fff;
       text-align: center;
       padding: 1rem;
-      margin-top: 2rem;
+      font-size: 0.9rem;
+      margin-top: auto;
     }
   </style>
 </head>
-
 
 <body>
   <header>
@@ -103,15 +155,12 @@
     </nav>
   </header>
 
-  <section class="hero">
-    <h2>Login to NoteSwap</h2>
-    <p>Access your uploaded notes and start sharing.</p>
-  </section>
-
   <section class="login-section">
-    <h2>Login</h2>
+    <h2>Welcome Back 👋</h2>
+    <p>Log in to access your saved and uploaded notes.</p>
+
     <form action="#" method="post">
-      <label for="email">Email</label>
+      <label for="email">Email Address</label>
       <input type="email" id="email" name="email" placeholder="you@example.com" required>
 
       <label for="password">Password</label>
@@ -119,11 +168,12 @@
 
       <button type="submit">Login</button>
     </form>
-    <p>Don't have an account? <a href="register.html">Register here</a></p>
+
+    <p>Don't have an account? <a href="register.html">Create one here</a></p>
   </section>
 
   <footer>
-    <p>&copy; 2025 NoteSwap. Built by students, for students.</p>
+    <p>&copy; 2025 NoteSwap — Built by students, for students.</p>
   </footer>
 </body>
 </html>
