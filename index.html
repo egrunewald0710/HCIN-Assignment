@@ -6,10 +6,11 @@
   <title>NoteSwap | Share and Find Class Notes</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Poppins', Arial, sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #f9f9f9;
+      background-color: #fafafa;
+      color: #333;
     }
     header {
       background-color: #ffc107;
@@ -17,48 +18,137 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
     header h1 {
       margin: 0;
+      font-size: 1.8rem;
     }
     nav a {
       margin: 0 1rem;
       text-decoration: none;
       color: #000;
       font-weight: bold;
+      transition: color 0.2s;
     }
+    nav a:hover {
+      color: #fff;
+    }
+
     .hero {
-      background: #fff3cd;
-      padding: 3rem;
+      background: linear-gradient(to right, #fff3cd, #ffe082);
+      padding: 4rem 2rem;
       text-align: center;
     }
     .hero h2 {
+      font-size: 2rem;
       margin-bottom: 1rem;
     }
+    .hero p {
+      font-size: 1.1rem;
+      color: #555;
+    }
     .cta-button {
-      padding: 0.8rem 1.5rem;
+      padding: 0.9rem 2rem;
       background-color: #ff9800;
       color: #fff;
       border: none;
-      font-size: 1rem;
+      font-size: 1.1rem;
       cursor: pointer;
-      border-radius: 5px;
+      border-radius: 8px;
+      margin-top: 1.5rem;
+      transition: background-color 0.3s ease;
     }
+    .cta-button:hover {
+      background-color: #e68900;
+    }
+
     .features {
       display: flex;
+      flex-wrap: wrap;
       justify-content: space-around;
-      padding: 2rem;
+      padding: 3rem 2rem;
       background-color: #fff;
     }
     .feature {
-      width: 30%;
+      width: 300px;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .feature h3 {
+      font-size: 1.4rem;
+    }
+    .feature p {
+      color: #555;
+    }
+
+    .how-it-works {
+      background-color: #fffbeb;
+      padding: 3rem 2rem;
       text-align: center;
     }
+    .how-it-works h2 {
+      margin-bottom: 2rem;
+    }
+    .steps {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+    .step {
+      width: 250px;
+      background: #fff;
+      border-radius: 10px;
+      padding: 1.5rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .categories {
+      padding: 3rem 2rem;
+      background-color: #fff;
+      text-align: center;
+    }
+    .category-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    .category {
+      background-color: #ffeb3b;
+      color: #000;
+      padding: 1rem 1.5rem;
+      border-radius: 5px;
+      font-weight: bold;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      cursor: pointer;
+    }
+
+    .testimonials {
+      background-color: #fff3cd;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    .testimonial {
+      max-width: 600px;
+      margin: 1rem auto;
+      font-style: italic;
+      color: #444;
+    }
+    .testimonial strong {
+      display: block;
+      margin-top: 0.5rem;
+      color: #000;
+    }
+
     footer {
       background-color: #333;
       color: #fff;
       text-align: center;
       padding: 1rem;
+      margin-top: 2rem;
     }
   </style>
 </head>
@@ -77,22 +167,66 @@
 
   <section class="hero">
     <h2>Missed a Lecture? Swap Notes, Not Stress.</h2>
-    <p>Find or share notes for any course – fast, free, and easy.</p>
-    <button class="cta-button">Get Started</button>
+    <p>Find or share notes for any subject — fast, free, and designed for students like you.</p>
+    <button class="cta-button" onclick="window.location.href='login.html'">Get Started</button>
   </section>
 
   <section class="features">
     <div class="feature">
       <h3>📤 Upload Notes</h3>
-      <p>Help your classmates and earn reputation points by sharing your notes.</p>
+      <p>Share your notes with classmates and earn reputation points in the community.</p>
     </div>
     <div class="feature">
       <h3>📚 Browse Notes</h3>
-      <p>Search by subject, module, or topic to find what you need.</p>
+      <p>Find study materials by subject, module, or topic — perfect for exam prep.</p>
     </div>
     <div class="feature">
-      <h3>📝 Request Help</h3>
-      <p>Can’t find a topic? Ask the community and get notified when it’s shared.</p>
+      <h3>🧑‍🤝‍🧑 Study Together</h3>
+      <p>Connect with peers who are taking the same course and exchange knowledge easily.</p>
+    </div>
+  </section>
+
+  <section class="how-it-works">
+    <h2>How NoteSwap Works</h2>
+    <div class="steps">
+      <div class="step">
+        <h3>1️⃣ Create an Account</h3>
+        <p>Sign up with your student email and set up your profile.</p>
+      </div>
+      <div class="step">
+        <h3>2️⃣ Upload Notes</h3>
+        <p>Upload PDFs or docs and tag them by subject and topic.</p>
+      </div>
+      <div class="step">
+        <h3>3️⃣ Browse and Download Notes</h3>
+        <p>Discover and download top-rated notes from your classmates and other students. Save time, learn faster, and ace your next exam with high-quality shared resources.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="categories">
+    <h2>Popular Subjects</h2>
+    <div class="category-grid">
+      <div class="category">Computer Science</div>
+      <div class="category">Mathematics</div>
+      <div class="category">Project Management</div>
+      <div class="category">Economics</div>
+      <div class="category">Accounting</div>
+      <div class="category">Engineering</div>
+      <div class="category">Psychology</div>
+      <div class="category">Marketing</div>
+    </div>
+  </section>
+
+  <section class="testimonials">
+    <h2>What Students Say</h2>
+    <div class="testimonial">
+      "NoteSwap helped me catch up after missing two weeks of lectures — I found notes from my exact module!"
+      <strong>– Sarah, RC Student</strong>
+    </div>
+    <div class="testimonial">
+      "I love how simple and fast it is. I’ve uploaded my notes and already helped three classmates."
+      <strong>– Ahmed,  RC Student</strong>
     </div>
   </section>
 
