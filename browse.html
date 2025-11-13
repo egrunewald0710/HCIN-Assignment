@@ -6,7 +6,7 @@
   <title>NoteSwap | Browse Notes</title>
   <style>
     body {
-      font-family: 'Poppins', sans-serif;
+      font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
       background-color: #f9f9f9;
@@ -33,9 +33,7 @@
       font-weight: 600;
     }
 
-    nav a:hover {
-      text-decoration: underline;
-    }
+    nav a:hover { text-decoration: underline; }
 
     .hero {
       background: #fff3cd;
@@ -44,11 +42,8 @@
       border-bottom: 2px solid #ffe082;
     }
 
-    .hero h2 {
-      margin-bottom: 0.5rem;
-    }
+    .hero h2 { margin-bottom: 0.5rem; }
 
-    /* Search Bar */
     .search-bar {
       text-align: center;
       margin: 2rem 0 1rem;
@@ -74,9 +69,7 @@
       font-size: 1rem;
     }
 
-    .search-bar button:hover {
-      background-color: #fb8c00;
-    }
+    .search-bar button:hover { background-color: #fb8c00; }
 
     .note-gallery {
       display: flex;
@@ -101,15 +94,8 @@
       box-shadow: 0 8px 16px rgba(0,0,0,0.15);
     }
 
-    .note-card h3 {
-      margin: 0.5rem 0;
-      color: #ff9800;
-    }
-
-    .note-card p {
-      font-size: 0.9rem;
-      color: #555;
-    }
+    .note-card h3 { margin: 0.5rem 0; color: #ff9800; }
+    .note-card p { font-size: 0.9rem; color: #555; }
 
     .note-card button {
       margin-top: 1rem;
@@ -121,15 +107,8 @@
       transition: background 0.3s;
     }
 
-    .view-btn {
-      background-color: #ff9800;
-      margin-right: 0.5rem;
-    }
-
-    .download-btn {
-      background-color: #4caf50;
-    }
-
+    .view-btn { background-color: #ff9800; margin-right: 0.5rem; }
+    .download-btn { background-color: #4caf50; }
     .view-btn:hover { background-color: #fb8c00; }
     .download-btn:hover { background-color: #43a047; }
 
@@ -141,16 +120,13 @@
       margin-top: 2rem;
     }
 
-    /* Modal Styles */
     .modal {
       display: none;
       position: fixed;
       z-index: 1000;
       padding-top: 60px;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
       overflow: auto;
       background-color: rgba(0,0,0,0.7);
     }
@@ -179,10 +155,7 @@
       cursor: pointer;
       color: #555;
     }
-
-    .close-btn:hover {
-      color: #000;
-    }
+    .close-btn:hover { color: #000; }
   </style>
 </head>
 <body>
@@ -208,34 +181,9 @@
     <button onclick="filterNotes()">Search</button>
   </div>
 
+  <!-- Notes Gallery -->
   <section class="note-gallery" id="noteGallery">
-    <div class="note-card" data-module="ISEC6321" data-qualification="BSc Computer Science">
-      <h3>Module: ISEC6321</h3>
-      <p>Qualification: BSc Computer Science</p>
-      <button class="view-btn" onclick="openModal('ISEC6321')">View Note</button>
-      <button class="download-btn">Download</button>
-    </div>
-
-    <div class="note-card" data-module="DATA6211A" data-qualification="BSc Information Systems">
-      <h3>Module: DATA6211A</h3>
-      <p>Qualification: BSc Information Systems</p>
-      <button class="view-btn" onclick="openModal('DATA6211A')">View Note</button>
-      <button class="download-btn">Download</button>
-    </div>
-
-    <div class="note-card" data-module="SAND6221A2" data-qualification="BSc Software Development">
-      <h3>Module: SAND6221A2</h3>
-      <p>Qualification: BSc Software Development</p>
-      <button class="view-btn" onclick="openModal('SAND6221A2')">View Note</button>
-      <button class="download-btn">Download</button>
-    </div>
-
-    <div class="note-card" data-module="IPMA6212" data-qualification="BCom IT Management">
-      <h3>Module: IPMA6212</h3>
-      <p>Qualification: BCom IT Management</p>
-      <button class="view-btn" onclick="openModal('IPMA6212')">View Note</button>
-      <button class="download-btn">Download</button>
-    </div>
+    <!-- Dynamic notes will appear here -->
   </section>
 
   <footer>
@@ -252,69 +200,79 @@
   </div>
 
   <script>
-    const notes = {
-      ISEC6321: `🔒 **Information Security (ISEC6321)**  
-- Security involves protecting data, networks, and systems from unauthorized access or damage.  
-- Key principles: **Confidentiality**, **Integrity**, and **Availability** (CIA Triad).  
-- Types of attacks: phishing, malware, ransomware, social engineering.  
-- Mitigation: firewalls, encryption, access controls, and regular security audits.  
-- Always follow organizational policies and apply least-privilege access.`,
+    // --- Sample uploaded notes (you can simulate upload with this) ---
+    if (!localStorage.getItem("uploadedNotes")) {
+      localStorage.setItem("uploadedNotes", JSON.stringify([
+        { module: "ISEC6321", qualification: "BSc Computer Science", content: "🔒 Information Security: CIA Triad, phishing, malware, encryption, access control." },
+        { module: "DATA6211A", qualification: "BSc Information Systems", content: "🗃️ SQL: Tables, Primary/Foreign keys, CRUD operations, normalization." },
+        { module: "SAND6221A2", qualification: "BSc Software Development", content: "💻 Software Analysis & Design: UML diagrams, SDLC, Agile & Waterfall methodologies." },
+        { module: "IPMA6212", qualification: "BCom IT Management", content: "📊 IT Project Management: Triple constraint, Gantt charts, risk registers, stakeholder analysis." }
+      ]));
+    }
 
-      DATA6211A: `🗃️ **Relational Databases (DATA6211A)**  
-- Data is stored in **tables** with rows and columns.  
-- Keys: **Primary Key** uniquely identifies records; **Foreign Key** maintains relationships.  
-- Use **SQL** for CRUD operations (Create, Read, Update, Delete).  
-- Example:  
-  SELECT student_name FROM Students WHERE mark > 70;  
-- Normalization reduces redundancy and improves efficiency.`,
+    // Render uploaded notes
+    function renderNotes() {
+      const gallery = document.getElementById("noteGallery");
+      const notes = JSON.parse(localStorage.getItem("uploadedNotes") || "[]");
+      gallery.innerHTML = "";
 
-      SAND6221A2: `💻 **Software Analysis & Design (SAND6221A2)**  
-- Focus: understanding user requirements and creating system models.  
-- Tools: **UML diagrams** (Use Case, Class, Sequence).  
-- Software Development Life Cycle (SDLC): Planning → Analysis → Design → Implementation → Testing.  
-- Design Principles: modularity, cohesion, low coupling.  
-- Agile and Waterfall are common development methodologies.`,
+      if (notes.length === 0) {
+        gallery.innerHTML = "<p style='text-align:center;'>No notes uploaded yet.</p>";
+        return;
+      }
 
-      IPMA6212: `📊 **IT Project Management (IPMA6212)**  
-- Projects are temporary efforts to create a unique product or service.  
-- Triple constraint: **Scope**, **Time**, **Cost**.  
-- Project phases: Initiation → Planning → Execution → Monitoring → Closure.  
-- Tools: Gantt charts, risk registers, stakeholder analysis.  
-- Leadership, communication, and adaptability are key to project success.`
-    };
+      notes.forEach(note => {
+        const card = document.createElement("div");
+        card.classList.add("note-card");
+        card.setAttribute("data-module", note.module);
+        card.setAttribute("data-qualification", note.qualification);
+        card.innerHTML = `
+          <h3>Module: ${note.module}</h3>
+          <p>Qualification: ${note.qualification}</p>
+          <button class="view-btn" onclick="openModal('${note.module}', '${note.content.replace(/'/g,"\\'")}')">View Note</button>
+          <button class="download-btn" onclick="downloadNote('${note.module}', '${note.content.replace(/'/g,"\\'")}')">Download</button>
+        `;
+        gallery.appendChild(card);
+      });
+    }
 
-    function openModal(moduleName) {
+    renderNotes();
+
+    // Modal
+    function openModal(title, content) {
       document.getElementById("noteModal").style.display = "block";
-      document.getElementById("modalTitle").innerText = moduleName + " Notes";
-      document.getElementById("modalBody").innerHTML = notes[moduleName] || "No note content available.";
+      document.getElementById("modalTitle").innerText = title + " Notes";
+      document.getElementById("modalBody").innerText = content;
     }
 
     function closeModal() {
       document.getElementById("noteModal").style.display = "none";
     }
 
+    window.onclick = function(event) {
+      const modal = document.getElementById("noteModal");
+      if (event.target == modal) { modal.style.display = "none"; }
+    }
+
+    // Search
     function filterNotes() {
       const input = document.getElementById("searchInput").value.toLowerCase();
       const cards = document.querySelectorAll(".note-card");
-
       cards.forEach(card => {
         const module = card.getAttribute("data-module").toLowerCase();
         const qualification = card.getAttribute("data-qualification").toLowerCase();
-
-        if (module.includes(input) || qualification.includes(input)) {
-          card.style.display = "block";
-        } else {
-          card.style.display = "none";
-        }
+        card.style.display = (module.includes(input) || qualification.includes(input)) ? "block" : "none";
       });
     }
 
-    window.onclick = function(event) {
-      let modal = document.getElementById("noteModal");
-      if (event.target == modal) {
-        modal.style.display = "none";
-      }
-    };
+    // Download note
+    function downloadNote(title, content) {
+      const blob = new Blob([content], { type: 'text/plain' });
+      const link = document.createElement("a");
+      link.download = `${title}-Note.txt`;
+      link.href = URL.createObjectURL(blob);
+      link.click();
+    }
   </script>
 </body>
 </html>
